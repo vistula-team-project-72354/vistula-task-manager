@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple task manager by Kateryna Kalyna, Vistula student 72354.">
+  <title>Task Manager | Kateryna Kalyna</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="brand-icon" aria-hidden="true">✓</span> Task Manager</a>
+      <span class="course">VISTULA · TEAM PROJECT IT</span>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">A LITTLE FOCUS GOES A LONG WAY</p>
+        <h1 id="page-title">Task Manager</h1>
+        <p class="lead">Make a plan. Take the next step.</p>
+        <p class="owner">Kateryna Kalyna <span aria-hidden="true">/</span> Student ID <strong id="student-id">72354</strong></p>
+      </section>
+      <div id="status-message" class="notice" role="status" aria-live="polite">Connecting to your task list…</div>
+      <div class="workspace">
+        <section class="panel composer" aria-labelledby="form-heading">
+          <p class="eyebrow">ONE STEP AT A TIME</p>
+          <h2 id="form-heading">New task</h2>
+          <p class="muted">Give your next step a name.</p>
+          <form id="task-form">
+            <fieldset id="task-fields" disabled>
+              <label for="task-title">Title <span class="required">*</span></label>
+              <input id="task-title" name="title" required placeholder="What needs to get done?" autocomplete="off">
+              <label for="task-description">Description <span class="optional">optional</span></label>
+              <textarea id="task-description" name="description" rows="4" placeholder="Add a few useful details…"></textarea>
+              <div class="form-actions">
+                <button id="task-submit" class="primary" type="submit">Add task <span aria-hidden="true">+</span></button>
+                <button id="cancel-edit" class="secondary" type="button" hidden>Cancel edit</button>
+              </div>
+            </fieldset>
+          </form>
+        </section>
+        <section class="tasks-panel" aria-labelledby="list-heading">
+          <div class="list-heading"><div><p class="eyebrow">YOUR NEXT STEPS</p><h2 id="list-heading">All tasks <span id="task-count" class="count">0</span></h2></div><button id="refresh-tasks" class="secondary" type="button">Refresh</button></div>
+          <p id="task-summary" class="muted">Your tasks will appear here.</p>
+          <div id="task-list" aria-live="polite" aria-busy="true"></div>
+          <div id="empty-state" class="empty-state" hidden><span class="empty-icon" aria-hidden="true">✓</span><h3>A little room for a fresh start.</h3><p>Add your first task to get going.</p></div>
+        </section>
+      </div>
+    </main>
+    <footer><span>Small steps. Real progress.</span><a id="contribution-link" href="contribution.html">Team contribution <span aria-hidden="true">↗</span></a></footer>
+  </div>
+  <template id="task-template">
+    <article class="task-item">
+      <div class="task-topline"><span class="task-status"></span><span class="task-number"></span></div>
+      <h3 class="task-title"></h3>
+      <p class="task-description"></p>
+      <div class="task-actions"><button class="toggle-task" type="button"></button><button class="edit-task secondary" type="button">Edit</button><button class="delete-task danger" type="button">Delete</button></div>
+    </article>
+  </template>
+  <noscript>This application needs JavaScript to load and save tasks.</noscript>
+</body>
+</html>
