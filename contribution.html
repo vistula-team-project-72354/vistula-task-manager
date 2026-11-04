@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Team Contribution</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="panel contribution">
+      <p class="eyebrow">BETTER TOGETHER</p>
+      <h1>Team Contribution</h1>
+      <p>This page was contributed by a project partner through a GitHub Pull Request.</p>
+      <button id="load-contributor" class="primary" type="button">Show Contributor</button>
+      <p id="contributor-student-id" role="status" aria-live="polite">Click the button to load the contributor.</p>
+      <a href="index.html">← Back to Task Manager</a>
+    </section>
+  </main>
+  <script>
+    'use strict';
+    const button = document.getElementById('load-contributor');
+    const output = document.getElementById('contributor-student-id');
+    button.addEventListener('click', async () => {
+      button.disabled = true;
+      output.textContent = 'Loading contributor…';
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 15000);
+      try {
+        const response = await fetch('contribution.json', { cache: 'no-store', signal: controller.signal });
+        if (!response.ok) throw new Error(`Could not load contributor (${response.status}). Please try again.`);
+        const data = await response.json();
+        if (!/^\d+$/.test(String(data.contributorStudentId || ''))) throw new Error('Contributor information is missing or invalid.');
+        output.textContent = `Contributor Student ID: ${data.contributorStudentId}`;
+      } catch (error) {
+        output.textContent = error.name === 'AbortError' ? 'Request timed out. Please try again.' : error.message;
+      } finally {
+        clearTimeout(timeout);
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
