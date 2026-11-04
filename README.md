@@ -13,7 +13,7 @@ A plain HTML, CSS and JavaScript task manager with persistent storage through th
 - Contributor page: https://vistula-team-project-72354.github.io/vistula-task-manager/contribution.html
 - Contributor JSON: https://vistula-team-project-72354.github.io/vistula-task-manager/contribution.json
 
-These are the intended URLs. Deployment and collaboration must be completed before submission.
+The main application is deployed on GitHub Pages. Contribution resources are published after the partner's Pull Request is merged.
 
 ## Features
 
@@ -67,8 +67,8 @@ Partner student ID: **71661**. The incoming `contribution.json` must contain `{"
 
 `contribution.html` and `contribution.json` must be supplied by the partner through a Pull Request from their dedicated account. Do not add these files directly to your own repository.
 
-- Incoming PR by partner (71661): **Pending — replace with merged Pull Request URL.**
-- Outgoing PR by 72354 to `vistula-team-project-71661/vistula-task-manager`: **Pending — replace with merged Pull Request URL.**
+- Incoming PR by partner (71661): [Add contributor page — 71661](https://github.com/vistula-team-project-72354/vistula-task-manager/pull/1).
+- Outgoing PR by 72354 to `vistula-team-project-71661/vistula-task-manager`: [Add contributor page — 72354](https://github.com/vistula-team-project-71661/vistula-task-manager/pull/1).
 
 Each author forks the partner's repository, creates `feature/team-contribution`, adds only the two contribution files, pushes, and opens a Pull Request into the partner's `main`. The receiving repository owner reviews and merges it. If a same-named personal repository already exists, give the fork a different name such as `partner-task-manager-71661`.
 
@@ -81,6 +81,6 @@ Each author forks the partner's repository, creates `feature/team-contribution`,
 5. Delete the test task and refresh to confirm it is gone.
 6. Check error handling using the browser's offline mode, then reconnect and refresh.
 7. Open the contribution page, click **Show Contributor**, and verify ID `71661` is loaded from the JSON file.
-8. Confirm both PRs are merged by the receiving owners and insert both real links above.
+8. Confirm both linked PRs are merged by the receiving repository owners.
 
 Submit only your own working application URL in Platon after all checks pass.
